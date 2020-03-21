@@ -46,7 +46,7 @@ sourceSets {
 }
 
 processResources {
-    dependsOn "buildAngular"
+  //  dependsOn "buildAngular" todo: uncomment this
 }
 
 task buildAngular(type:Exec) {

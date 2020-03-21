@@ -23,10 +23,11 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         Mongobee runner = new Mongobee("mongodb://localhost:27017/store");
         runner.setDbName("store");         // host must be set if not set in URI
         runner.setChangeLogsScanPackage(
-                "com.ashutka.migrations"); // the package to be scanned for changesets
+                "com.ashutka.app.migrations"); // the package to be scanned for changesets
 
         return runner;
     }
+
     private String mongoHost = "localhost";
 
     private String mongoPort = "27017";
