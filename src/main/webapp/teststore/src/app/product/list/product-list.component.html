@@ -1,5 +1,8 @@
-<ul >
-  <li *ngFor="let product of products">
-    {{product}}
-  </li>
-</ul>
+<h2 class="centered header">Products available to buy: </h2>
+<div class="products-wrapper">
+  <mat-list class="product-list">
+    <mat-list-item [class]="resolveClass(product)" *ngFor="let product of products" [title]="resolveTitle(product)">
+      <app-product-item [product]="product"></app-product-item>
+    </mat-list-item>
+  </mat-list>
+</div>

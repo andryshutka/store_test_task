@@ -2,7 +2,8 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {ProductListResponse} from "./product-list-response-i";
+import {PagedResponse} from "../helpers/paged-response-i";
+import {Product} from "./product-i";
 
 @Injectable()
 export class ProductService {
@@ -13,7 +14,11 @@ export class ProductService {
     this.baseUrl = environment.baseUrl;
   }
 
-  public getProducts(): Observable<ProductListResponse> {
-    return this.http.get<ProductListResponse>(this.baseUrl + "/api/products");
+  public getProducts(page: number, size: number): Observable<PagedResponse<Product>> {
+    return this.http.get<PagedResponse<Product>>(this.baseUrl + `/api/products?page=${page}&size=${size}`);
+  }
+
+  public getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(this.baseUrl + `/api/products/${id}`);
   }
 }

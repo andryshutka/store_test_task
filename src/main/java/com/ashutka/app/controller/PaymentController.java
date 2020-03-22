@@ -2,14 +2,12 @@ package com.ashutka.app.controller;
 
 import com.ashutka.app.entity.Payment;
 import com.ashutka.app.entity.Product;
-import com.ashutka.app.help.PagedResult;
 import com.ashutka.app.repository.PaymentRepository;
 import com.ashutka.app.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
@@ -36,6 +34,7 @@ public class PaymentController {
             Product presentProduct = product.get();
             if (presentProduct.getCount() > payment.getQuantity()) {
                 presentProduct.setCount(presentProduct.getCount() - payment.getQuantity());
+                payment.setPaymentDate(LocalDateTime.now());
                 productRepository.save(presentProduct);
                 result = paymentRepository.save(payment);
             } else {

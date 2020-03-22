@@ -1,0 +1,37 @@
+<h2 class="centered header">
+  You want to buy {{productToBuy.brand}} {{productToBuy.name}}
+</h2>
+
+<div class="input-wrapper">
+  <mat-form-field class="quantity-input">
+    <mat-label>Input quantity</mat-label>
+    <input matInput type="number" name="totalQuantity" [min]="1" [max]="productToBuy.count"
+           [(ngModel)]="payment.quantity" placeholder="Quantity" value="1" required>
+  </mat-form-field>
+</div>
+
+<h2 class="centered header">Payment Information</h2>
+<form class="wrapper">
+  <div class="card-number-block">
+    <mat-form-field class="example-full-width">
+      <input matInput [textMask]="{mask: cardNumberMask}" [(ngModel)]="payment.cardNumber" required name="cardNumber" placeholder="Card Number">
+    </mat-form-field>
+  </div>
+
+  <div class="cvv-year-block">
+    <mat-form-field class="form-input-wrapper">
+      <input matInput [textMask]="{mask: cvvMask}" [(ngModel)]="payment.cvv" required name="cvv" placeholder="CVV code">
+    </mat-form-field>
+
+    <mat-form-field class="form-input-wrapper">
+      <input matInput [textMask]="{mask: yearMonthMask}" [(ngModel)]="payment.expiresIn" required name="expiration" placeholder="Expires In">
+    </mat-form-field>
+  </div>
+
+  <div class="button-block">
+    <button mat-stroked-button (click)="buy()" [disabled]="!isValid()">
+      Buy for {{productToBuy.price * payment.quantity | currency}}
+    </button>
+  </div>
+
+</form>

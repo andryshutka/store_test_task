@@ -1,0 +1,39 @@
+h2.centered {
+  text-align: center;
+}
+
+h2.header {
+  margin-top: 20px;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.input-wrapper {
+  display: flex;
+  .quantity-input {
+    margin-left: 20px;
+    flex: 0 0 2em;
+  }
+}
+
+form.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+
+  .card-number-block {
+
+  }
+
+  .cvv-year-block {
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 20px;
+    .form-input-wrapper {
+      margin-right: 30px;
+      width: 85px;
+    }
+  }
+}
+

@@ -1,0 +1,41 @@
+.item-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .item-image {
+    flex: 0 0 3em;
+    margin-right: 20px;
+  }
+
+  .item-name {
+    font-size: 16px;
+    margin-right: 10px;
+    flex: 0 0 10em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    span {
+      font-size: 11px;
+    }
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 10em;
+  }
+
+  .item-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 0 0.3em;
+    &.cursor-pointer {
+      cursor: pointer;
+    }
+  }
+
+
+}
