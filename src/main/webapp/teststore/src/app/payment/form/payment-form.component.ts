@@ -14,7 +14,6 @@ export class PaymentFormComponent implements OnInit {
 
   private productId: number;
   public productToBuy: Product = <Product>{};
-  public totalCount: number = 1;
   public totalSum: number;
   public payment: Payment = <Payment>{
     quantity: 1
@@ -45,8 +44,7 @@ export class PaymentFormComponent implements OnInit {
     this.payment.productId = this.productToBuy.id;
     this.paymentService.createPayment(this.payment).subscribe(payment => {
       if (payment.id) {
-        console.log('payment successful');
-        this.router.navigate(['']);
+        this.router.navigate(['thank-you']);
       }
     })
   }

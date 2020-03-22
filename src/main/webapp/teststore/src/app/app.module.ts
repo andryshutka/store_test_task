@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TextMaskModule} from "angular2-text-mask";
 import {MatButtonModule} from "@angular/material/button";
 import {PaymentService} from "./payment/payment.service";
+import {ThankYouComponent} from "./payment/thankyou/thank-you.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {PaymentService} from "./payment/payment.service";
     ProductListComponent,
     ProductItemComponent,
     PaymentFormComponent,
+    ThankYouComponent,
   ],
   imports: [
     BrowserModule,

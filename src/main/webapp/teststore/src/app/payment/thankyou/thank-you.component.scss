@@ -1,0 +1,21 @@
+div.thank-you-header {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  h1 {
+    font-size: 40px;
+  }
+}
+
+div.main-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px auto;
+  p {
+    text-align: center;
+    mat-icon {
+      color: green;
+    }
+  }
+}

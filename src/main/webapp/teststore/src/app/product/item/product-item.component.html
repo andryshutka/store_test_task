@@ -9,10 +9,6 @@
     <span> Price: {{product.price | currency}} </span>
   </p>
 
-  <p matLine class="item-info">
-
-  </p>
-
 
   <p class="item-icon" [ngClass]="product.count > 0 ? 'cursor-pointer' : ''" (click)="buyProduct(product)">
     <mat-icon>add_shopping_cart</mat-icon>

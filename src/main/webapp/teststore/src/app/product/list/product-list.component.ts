@@ -10,7 +10,7 @@ import {Product} from "../product-i";
 export class ProductListComponent implements OnInit{
 
   public products: Product[] = [];
-  private hasMoreElements: Boolean = true;
+  public hasMoreElements: Boolean = true;
   private page: number = 0;
   private size: number = 10;
 

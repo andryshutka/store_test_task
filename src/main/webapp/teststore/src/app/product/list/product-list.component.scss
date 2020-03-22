@@ -54,3 +54,11 @@ h2.header {
   font-size: 17px;
   margin-bottom: 10px;
 }
+
+.load-more-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+}
