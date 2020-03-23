@@ -18,19 +18,17 @@ import java.util.Collections;
 @Configuration
 public class MongoConfig extends AbstractMongoClientConfiguration {
 
+    private static final String MONGO_CONNECTION_STRING = "mongodb://localhost:27017/store";
+
     @Bean
     public Mongobee mongobee(){
-        Mongobee runner = new Mongobee("mongodb://localhost:27017/store");
+        Mongobee runner = new Mongobee(MONGO_CONNECTION_STRING);
         runner.setDbName("store");         // host must be set if not set in URI
         runner.setChangeLogsScanPackage(
                 "com.ashutka.app.migrations"); // the package to be scanned for changesets
 
         return runner;
     }
-
-    private String mongoHost = "localhost";
-
-    private String mongoPort = "27017";
 
     private String mongoDB = "store";
 
@@ -42,7 +40,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     @Bean
     public MongoClient mongoClient() {
         return new MongoClientImpl(MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString("mongodb://localhost:27017/store"))
+                .applyConnectionString(new ConnectionString(MONGO_CONNECTION_STRING))
                 .build(), null);
     }
 
@@ -53,7 +51,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "store";
+        return mongoDB;
     }
 
     @Override
