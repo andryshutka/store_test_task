@@ -1,6 +1,6 @@
-##Test task
+## Test task
 
-###How to start
+### How to start
 
 - make sure that `mongoDB` is installed.
 - create database `store`
