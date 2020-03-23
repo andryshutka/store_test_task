@@ -12,7 +12,7 @@ export class ThankYouComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setInterval(() => this.router.navigate(['']), 5000);
+    setTimeout(() => this.router.navigate(['']), 5000);
   }
 
 
