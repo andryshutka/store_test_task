@@ -50,10 +50,14 @@ processResources {
 }
 
 task buildAngular(type:Exec) {
+    def tree = fileTree("$webappDir/dist")
+    tree.include '*.*'
+    tree.each { it.delete() }
     // installAngular should be run prior to this task
     dependsOn "installAngular"
     workingDir "$webappDir"
     inputs.dir "$webappDir"
+
     // Add task to the standard build group
     group = BasePlugin.BUILD_GROUP
     // ng doesn't exist as a file in windows -> ng.cmd
@@ -63,6 +67,9 @@ task buildAngular(type:Exec) {
         commandLine "ng", "build"
     }
 
+    def tree2 = fileTree("$projectDir/src/main/resources/static/")
+    tree2.include '**/*.*'
+    tree2.each { it.delete() }
     copy {
         from "$webappDir/dist"
         into "$projectDir/src/main/resources/static"
